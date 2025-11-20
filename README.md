@@ -22,7 +22,7 @@
 
 ## 安装
 ```bash
-composer require yc/laravel-data-migrator
+composer require carlin/laravel-data-migrator
 ```
 
 ## 发布配置
