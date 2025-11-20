@@ -28,7 +28,7 @@ composer require carlin/laravel-data-migrator
 ## 发布配置
 将包内默认配置发布到应用：
 ```bash
-php artisan vendor:publish --provider="YC\DataMigrator\DataMigratorServiceProvider" --tag=config
+php artisan vendor:publish --provider="Carlin\DataMigrator\DataMigratorServiceProvider" --tag=config
 
 ```
 会生成 `config/data_migration.php`。
