@@ -52,7 +52,7 @@ class MigrateDataCommand extends Command
             $this->line('  目标数据库: ' . ($config['target_connection'] ?? 'target'));
             $this->line('  批量大小: ' . ($config['chunk'] ?? 500));
             $this->line('  保留期限: ' . ($config['retain'] ?? 1));
-            $this->line('  迁移后删除: ' . ($config['delete_after_verify'] ? '是' : '否'));
+            $this->line('  迁移后删除: ' . ($config['delete'] ? '是' : '否'));
             $this->newLine();
 
             // 创建迁移器实例
