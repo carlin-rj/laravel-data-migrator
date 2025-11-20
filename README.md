@@ -2,7 +2,7 @@
 
 一个用于在不同数据库之间迁移数据的 Laravel 扩展包，支持按配置定义的主表及其关联关系进行安全、高效的分表迁移。适用于大数据量场景，提供分批迁移、自动建表、数据校验与迁移后清理等功能。
 
-- 包名：`yc/laravel-data-migrator`
+- 包名：`carlin/laravel-data-migrator`
 - 服务提供者：`DataMigratorServiceProvider`
 - 命令：`MigrateDataCommand`
 - 配置文件：`data_migration.php`
