@@ -1,0 +1,36 @@
+{
+    "name": "carlin/laravel-data-migrator",
+    "description": "Laravel package for migrating data between databases with configurable relationships and migration modes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "carlin"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "illuminate/database": "^8.0|^9.0|^10.0",
+        "nesbot/carbon": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Carlin\\DataMigrator\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Carlin\\DataMigrator\\DataMigratorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "orchestra/testbench": "^8.36"
+    }
+}

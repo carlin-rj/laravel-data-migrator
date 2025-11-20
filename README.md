@@ -29,8 +29,7 @@ composer require yc/laravel-data-migrator
 将包内默认配置发布到应用：
 ```bash
 php artisan vendor:publish --provider="YC\DataMigrator\DataMigratorServiceProvider" --tag=config
-# 或者（若你的环境支持 tag ）
-php artisan vendor:publish --tag=config
+
 ```
 会生成 `config/data_migration.php`。
 
@@ -84,8 +83,8 @@ return [
             // 分批大小
             'chunk' => 500,
 
-            // 校验后是否删除源数据
-            'delete_after_verify' => false,
+            // 迁移后是否删除源数据
+            'delete' => true,
 
             // 保留最近 N 年/月的数据（只迁移更早数据）
             'retain' => 1,
@@ -105,15 +104,6 @@ return [
 ];
 ```
 
-### 命名规则与步进（`step`）
-- 当 `mode=1`（按年）且 `step=1`：目标表示例 `users_2021`, `users_2022`
-- 当 `mode=1` 且 `step=2`：目标表示例 `users_2021_2022`, `users_2023_2024`
-- 表名由 `table_suffix` 控制（如 `'{%table}_{%start_year}_{%end_year}'`）
-
-### 关联关系命名与分片原则
-- 关联表与主表复用相同的时间分片与命名规则（例如主表 `users_2021_2022`，关联表 `posts_2021_2022`、`comments_2021_2022`）
-- 禁止为关联表单独生成分片（不重复查询 MIN/MAX），严格以主表分片为准
-
 ## 使用方法
 执行迁移命令，指定配置名：
 ```bash
@@ -127,7 +117,7 @@ php artisan data:migrate --name="Example Migration"
 2. 自动建表（目标库不存在则克隆源表结构）
 3. 分批迁移（`chunk`）
 4. 校验（按主表分片，关联表基于外键对齐校验）
-5. 可选清理源数据（`delete_after_verify`）
+5. 可选清理源数据（`delete`）
 
 ## 校验与安全
 - 主表校验：对比源库分片范围的行数与目标分表的行数
